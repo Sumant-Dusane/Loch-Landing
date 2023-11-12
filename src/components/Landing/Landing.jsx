@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./landing.scss";
 import spriteIcon from '../../assets/sprite.svg';
 import productSnapshot from "../../assets/images/product-preview.jpeg";
 import Testimonals from '../Testimonals/Testimonals';
 
 export default function Landing() {
+  const [isFormValid, setFormValidStatus] = useState(true);
+  const registerEmail = (e) => {
+    e.preventDefault();
+    console.log(e);
+    let emailAdd = e.target[0].value;
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailAdd)) {
+      setFormValidStatus(false);
+      return
+    }
+    setFormValidStatus(true);
+    e.target[0].value = '';
+    setTimeout(() => {
+      window.location.href = 'https://app.loch.one/welcome';
+    }, 300);
+    e.target[1].disabled = true;
+  }
   return (
     <div className='landing'>
       <div className="landing__left">
@@ -53,10 +70,13 @@ export default function Landing() {
           <Testimonals />
         </div>
       </div>
-      <form className="landing__right">
+      <form className="landing__right" onSubmit={registerEmail}>
         <div className="landing__right__wrapper">
           <div className="title">Sign up for <br /> exclusive access.</div>
-          <input className='input' type="email" placeholder='Your email address' />
+          <div>
+            <input className='input' type="text" placeholder='Your email address' />
+            <small className={isFormValid ? 'input--error' : 'input--error show'}>Please enter a valid email</small>
+          </div>
           <input className='button' type='submit' value="Get Started" />
           <p className='tagline'>You'll receive an email with an invite link to join.</p>
         </div>

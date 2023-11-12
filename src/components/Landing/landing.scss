@@ -136,6 +136,15 @@
             .input {
                 padding: $spacer125;
                 width: 100%;
+
+                &--error {
+                    color: $danger;
+                    visibility: hidden;
+
+                    &.show {
+                        visibility: visible;
+                    }
+                }
             }
             
             .button {
@@ -151,6 +160,11 @@
 
                 &:hover {
                     background: lighten($color: $dark, $amount: 10);
+                }
+
+                &:disabled {
+                    cursor: not-allowed;
+                    background: lighten($color: $dark, $amount: 50);
                 }
             }
     
