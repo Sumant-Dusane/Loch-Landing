@@ -1,0 +1,162 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/flex";
+@import "../../assets/styles/sudo";
+
+.landing {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+
+    &__left {
+        @include flex(column, flex-start, flex-start, $spacer2x);
+        position: relative;
+        color: $white;
+        height: 100%;
+        background-color: $dark;
+        padding-top: $spacer5x;
+        padding-left: $spacer4x;
+
+        & > * {
+            z-index: 1;
+        }
+
+        &::before {
+            @include sudo-fill("", absolute, 0, 0, 0, -50%);
+            background: $landingPageGradient no-repeat bottom left;
+            background-size: cover;
+        }
+
+        .row {
+
+            .text-box {
+                .title {
+                    font-weight: 500;
+                    font-size: $font-size-32;
+                    margin-top: $spacer14;
+                }
+                p {
+                    color: $lightVariant1;
+                    opacity: 0.7;
+                    margin-top: $spacer;
+                }
+            }
+
+            &--title {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: flex-start;
+                justify-items: center;
+                column-gap: $spacer4x;
+
+                .carousel {
+                    @include flex(row, center, flex-start, $spacer14);
+                    position: relative;
+                    justify-self: baseline;
+                    overflow-x: auto;
+                    padding-right: $spacer1_2;
+                    width: 100%;
+
+                    .card {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-rows: repeat(3, 1fr);
+                        grid-template-areas: "icon button" "title title" "footer footer";
+                        align-items: center;
+                        gap: $spacer14;
+                        color: $dark;
+                        overflow: hidden;
+                        padding: $spacer14;
+                        max-height: 190px;
+                        min-height: 190px;
+                        max-width: 200px;
+                        min-width: 200px;
+                        border-radius: $border-radius;
+                        background: $cardShadowVariantBackground;
+                        box-shadow: $cardShadowVariantBoxShadow;
+
+                        .icon {
+                            color: $dark;
+                            grid-area: icon;
+                        }
+                        .button {
+                            cursor: pointer;
+                            grid-area: button;
+                            background: transparent;
+                            padding: 0;
+                            font-size: $font-size-14;
+                            border: 0;
+                        }
+
+                        .title {
+                            grid-area: title;
+                            font-size: $font-size-14;
+                            font-weight: bold;
+                        }
+                        .footer {
+                            grid-area: footer;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+
+            &--product {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: $spacer2x;
+                padding-right: $spacer4x;
+
+                img {
+                    width: 100%;
+                    border-radius: $border-radius-sm;
+                }
+
+                .text-box {
+                    text-align: end;
+                }
+            }
+        }
+    }
+    &__right {
+        @include flex(column, center, center, 0);
+        background-color: $white;
+        z-index: 2;
+        box-shadow: 0px 14px 64px -4px rgba(24, 39, 75, 0.12), 0px 8px 22px -6px rgba(24, 39, 75, 0.12);
+        
+        &__wrapper {
+            @include flex(column, flex-start, center, $spacer2x);
+            max-width: 365px;
+            .title {
+                color: $light;
+                font-size: $font-size-32;
+                font-weight: 500;
+                text-align: start;
+            }
+            
+            .input {
+                padding: $spacer125;
+                width: 100%;
+            }
+            
+            .button {
+                cursor: pointer;
+                color: $white;
+                background: $dark;
+                border: 0;
+                border-radius: $border-radius-sm;
+                padding: $spacer125 $spacer;
+                width: 100%;
+                font-weight: 600;
+                transition: $transition-base;
+
+                &:hover {
+                    background: lighten($color: $dark, $amount: 10);
+                }
+            }
+    
+            .tagline {
+                font-weight: 600;
+            }   
+        }
+    }
+}

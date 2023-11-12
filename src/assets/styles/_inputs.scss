@@ -1,0 +1,20 @@
+input[type=text], input[type=password], input[type=email] {
+    border-radius: $border-radius-sm;
+    border: 1px solid $stroke;
+
+    &::placeholder {
+        color: $placeholderTextColor;
+    }
+}
+
+select {
+    cursor: pointer;
+    position: relative;
+    border-radius: $border-radius-sm;
+    padding: $spacer1_4 $spacer1_2;
+    appearance: none;
+    background: url('../images/caret.svg') no-repeat center right $inputFg;
+    background-size: 20px;
+    background-position-x: calc(100% - $spacer1_2);
+    border: 1px solid $stroke;
+}
