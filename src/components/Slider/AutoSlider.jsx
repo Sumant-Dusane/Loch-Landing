@@ -11,29 +11,52 @@ export default function AutoSlider() {
         dots: false,
         arrows: false,
         infinite: true,
-        slidesToShow: 1.7,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 2000,
         autoplaySpeed: 2000,
+        pauseOnHover: true,
         cssEase: "linear",
+        initialSlide: 0,
+        centerMode: true,
+        centerPadding: '20%',
+        variableWidth: false,
         responsive: [
             {
-                breakpoint: 769,
+                breakpoint: 1024,
                 settings: {
-                    slidesToShow: 0.8,
-                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '20%',
+                    variableWidth: true
                 }
             },
             {
-                breakpoint: 375,
+                breakpoint: 769,
                 settings: {
-                    slidesToShow: 0.75,
-                    slidesToScroll: 1,
+                    centerMode: true,
+                    centerPadding: '50px',
+                    variableWidth: true
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    centerMode: true,
+                    centerPadding: '20px',
+                    variableWidth: true
+                }
+            },
+            {
+                breakpoint: 376,
+                settings: {
+                    centerMode: false,
+                    centerPadding: '0',
+                    variableWidth: true
                 }
             }
         ]
     };
+
     return (
         <Slider className='slider' {...slickSettings}>
             <div className="card">

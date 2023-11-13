@@ -1,13 +1,38 @@
 @import "../../assets/styles/variables";
+@import "../../assets/styles/sudo";
 @import "../../assets/styles/flex";
 
 .slider {
-    @include flex(row, center, flex-start, $spacer14);
+    @include flex(row !important, center, flex-start, 0);
     position: relative;
     justify-self: baseline;
     overflow-x: auto;
-    width: 100%;
+    max-width: 100%;
+    max-height: 190px;
 
+    &::before, &:after {
+        @include sudo-fill("", absolute, 0, unset, 0, unset);
+        background: linear-gradient(to right, $dark 0%, transparent 100%);
+        height: 100%;
+        width: 15%;
+        z-index: 2;
+    }
+    &::before {
+        left: 0;
+    }
+    &::after {
+        right: 0;
+        transform: rotateZ(180deg);
+    }
+
+    .slick {
+        &-slide {
+            transition: $transition-base;
+            &:not(.slick-current) {
+                opacity: 0.4;
+            }
+        }
+    }
     .card {
         display: grid !important;
         grid-template-columns: repeat(2, 1fr);
