@@ -12,7 +12,7 @@
 
     &::before, &:after {
         @include sudo-fill("", absolute, 0, unset, 0, unset);
-        background: linear-gradient(to right, $dark 0%, transparent 100%);
+        background: linear-gradient(to right, $darkBlur 0%, transparent 100%);
         height: 100%;
         width: 15%;
         z-index: 2;
