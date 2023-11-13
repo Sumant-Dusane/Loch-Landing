@@ -47,57 +47,6 @@
                 align-items: flex-start;
                 justify-items: center;
                 column-gap: $spacer125;
-
-                .carousel {
-                    @include flex(row, center, flex-start, $spacer14);
-                    position: relative;
-                    justify-self: baseline;
-                    overflow-x: auto;
-                    padding-right: $spacer1_2;
-                    width: 100%;
-
-                    .card {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        grid-template-rows: repeat(3, 1fr);
-                        grid-template-areas: "icon button" "title title" "footer footer";
-                        align-items: center;
-                        gap: $spacer14;
-                        color: $dark;
-                        overflow: hidden;
-                        padding: $spacer14;
-                        max-height: 190px;
-                        min-height: 190px;
-                        max-width: 200px;
-                        min-width: 200px;
-                        border-radius: $border-radius;
-                        background: $cardShadowVariantBackground;
-                        box-shadow: $cardShadowVariantBoxShadow;
-
-                        .icon {
-                            color: $dark;
-                            grid-area: icon;
-                        }
-                        .button {
-                            cursor: pointer;
-                            grid-area: button;
-                            background: transparent;
-                            padding: 0;
-                            font-size: $font-size-14;
-                            border: 0;
-                        }
-
-                        .title {
-                            grid-area: title;
-                            font-size: $font-size-14;
-                            font-weight: bold;
-                        }
-                        .footer {
-                            grid-area: footer;
-                            height: 100%;
-                        }
-                    }
-                }
             }
 
             &--product {

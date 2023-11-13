@@ -3,6 +3,7 @@ import "./landing.scss";
 import spriteIcon from '../../assets/sprite.svg';
 import productSnapshot from "../../assets/images/product-preview.jpeg";
 import Testimonals from '../Testimonals/Testimonals';
+import AutoSlider from '../Slider/AutoSlider';
 
 export default function Landing() {
   const [isFormValid, setFormValidStatus] = useState(true);
@@ -31,32 +32,7 @@ export default function Landing() {
             <div className='title'>Get notified when a highly correlated whale makes a move</div>
             <p>Find out when a certain whale moves more than any preset amount on-chain or when a dormant whale you care about becomes active.</p>
           </div>
-          <div className="carousel">
-            <div className="card">
-              <i className="icon"><svg width={32} height={32}><use href={spriteIcon + '#icon-bell--outline-dark'}></use></svg></i>
-              <button className="button">save</button>
-              <div className="title">We'll be sending notifications to you here</div>
-              <input className='footer' type="text" name="" id="" />
-            </div>
-            <div className="card">
-              <i className="icon"><svg width={29} height={28}><use href={spriteIcon + '#icon-bar-dark'}></use></svg></i>
-              <input className='button' type="checkbox" />
-              <div className="title">Notify me when any wallets move more than</div>
-              <select className="footer">
-                <option value="1000.00">$1,000.00</option>
-                <option value="2000.00">$2,000.00</option>
-              </select>
-            </div>
-            <div className="card">
-              <i className="icon"><svg width={29} height={28}><use href={spriteIcon + '#icon-clock-dark'}></use></svg></i>
-              <input className='button' type="checkbox" />
-              <div className="title">Notify me when any wallets move more than</div>
-              <select className="footer">
-                <option value="1000.00">$1,000.00</option>
-                <option value="2000.00">$2,000.00</option>
-              </select>
-            </div>
-          </div>
+          <AutoSlider />
         </div>
         <div className="row row--product">
           <img src={productSnapshot} alt="Loco" />

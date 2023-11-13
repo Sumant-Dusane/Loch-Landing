@@ -24,12 +24,18 @@
         align-items: flex-end;
         justify-items: center;
         
+        .carousel__wrapper {
+            cursor: grab;
+            overflow: hidden;
+            width: 100%;
+        }
+
         .carousel {    
             @include flex(row, flex-end, flex-start, $spacer14);
-            position: relative;
-            justify-self: baseline;
-            overflow-x: auto;
-            width: 100%;
+            // position: relative;
+            // justify-self: baseline;
+            // overflow-x: auto;
+            // width: 100%;
             .card {
                 color: $dark;
                 background-color: $white;
